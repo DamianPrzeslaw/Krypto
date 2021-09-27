@@ -1,0 +1,32 @@
+CREATE TABLE Eth( 
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+dzien DATE,
+godzina TIME,
+suma INT UNSIGNED,
+delta BIGINT,
+cena SMALLINT UNSIGNED
+);
+
+CREATE TABLE Usd(
+id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+dzien DATE,
+godzina TIME,
+suma INT UNSIGNED,
+delta BIGINT 
+);
+
+//Przykladowa komenda wstawienia 
+INSERT INTO Eth(dzien,godzina,suma,delta,cena) VALUES ('2021-01-01','01:11:22',111,234,1000);
+
+//Przykladowa komenda pobrania 
+SELECT dzien,godzina,suma FROM Eth ORDER BY id DESC LIMIT 1; 
+
+//format komendy w c#
+ string s = string.Format(
+                "INSERT INTO Eth (dzien,godzina,suma,delta,cena) VALUES('{0}','{1}', {2}, {3},{4});",
+                 thisHour.ToString("yyyy-MM-dd"),
+                 thisHour.ToString("HH:mm"),
+                 w.suma_eth,
+                 w.get_delta_eth(),
+                 w.get_eth_cena()
+                 ) ;
